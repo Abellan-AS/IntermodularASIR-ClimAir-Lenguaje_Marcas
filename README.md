@@ -1,6 +1,6 @@
 # 📊 Proyecto Intermodula 1º ASIR - Climair S.L. (Módulo: Lenguaje de Marcas)
 
-Este repositorio contiene la arquitectura de datos para la gestión de partes de trabajo de **Climair S.L.** El proyecto se centra en el modelado de información técnica mediante lenguajes de marcado, asegurando la integridad de los datos y su representación visual.
+Este repositorio contiene la arquitectura de datos para la gestión de partes de trabajo de **Climair S.L.** El proyecto se centra en el modelado de información técnica mediante lenguajes de marcas, asegurando la integridad de los datos y su representación visual.
 
 ---
 
