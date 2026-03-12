@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="transform.xsl"?>
+<!DOCTYPE partes_trabajo SYSTEM "modelo.dtd">
+
+<partes_trabajo>
+    <tecnicos>
+        <tecnico id="T01">
+            <nombre>Pepe Técnico</nombre>
+            <especialidad>Industrial</especialidad>
+        </tecnico>
+        <tecnico id="T02">
+            <nombre>Juan Instalador</nombre>
+            <especialidad>Doméstica</especialidad>
+        </tecnico>
+        <tecnico id="T03">
+            <nombre>María Instaladora Especialista</nombre>
+            <especialidad>General</especialidad>
+        </tecnico>
+    </tecnicos>
+
+    <intervenciones>
+        <parte id="P-2026-001" tecnico_ref="T01">
+            <cliente>Restaurante El Frío</cliente>
+            <fecha>2026-03-10</fecha>
+            <equipo>Split Industrial ClimAir 3000</equipo>
+            <descripcion>Cambio de filtros y recarga de gas R32.</descripcion>
+            <estado>Pendiente</estado>
+        </parte>
+        
+        <parte id="P-2026-002" tecnico_ref="T02">
+            <cliente>Vivienda Particular - Calle Aragón 20</cliente>
+            <fecha>2026-03-11</fecha>
+            <equipo>ClimAir 1000 v3</equipo>
+            <descripcion>Instalación nueva unidad exterior.</descripcion>
+            <estado>Pendiente</estado>
+        </parte>
+        <parte id="P-2026-003" tecnico_ref="T02">
+            <cliente>Vivienda Particular - Calle Pau Gasol 15</cliente>
+            <fecha>2026-03-11</fecha>
+            <equipo>ClimAir 1000 v3</equipo>
+            <descripcion>Instalación nueva unidad exterior.</descripcion>
+            <estado>Activo</estado>
+        </parte>
+        <parte id="P-2026-004" tecnico_ref="T03">
+            <cliente>CC Islazul</cliente>
+            <fecha>2026-03-12</fecha>
+            <equipo>Chiller de Agua 50kW</equipo>
+            <descripcion>Revisión del circuito de condensación.</descripcion>
+            <estado>Finalizado</estado>
+        </parte>
+        <parte id="P-2026-005" tecnico_ref="T01">
+            <cliente>CC La Vaguada</cliente>
+            <fecha>2026-03-12</fecha>
+            <equipo>Mantenimiento</equipo>
+            <descripcion>Revisión anual del sistema climatización.</descripcion>
+            <estado>Finalizado</estado>
+        </parte>
+
+    </intervenciones>
+</partes_trabajo>

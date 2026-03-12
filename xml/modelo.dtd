@@ -1,0 +1,21 @@
+<!ELEMENT partes_trabajo (tecnicos, intervenciones)>
+
+<!ELEMENT tecnicos (tecnico+)>
+<!ELEMENT tecnico (nombre, especialidad)>
+<!ATTLIST tecnico id ID #REQUIRED>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT especialidad (#PCDATA)>
+
+<!ELEMENT intervenciones (parte*)>
+<!ELEMENT parte (cliente, fecha, equipo, descripcion, estado)>
+<!ATTLIST parte 
+id ID #REQUIRED
+tecnico_ref IDREF #REQUIRED>
+
+<!ELEMENT cliente (#PCDATA)>
+<!ELEMENT fecha (#PCDATA)>
+<!ELEMENT equipo (#PCDATA)>
+<!ELEMENT descripcion (#PCDATA)>
+
+<!ELEMENT estado (#PCDATA)>
+<!ATTLIST estado tipo (Pendiente | Activo | Finalizado) "Pendiente">

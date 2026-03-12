@@ -1,0 +1,68 @@
+{
+  "partes_trabajo": {
+    "tecnicos": [
+      {
+        "id": "T01",
+        "nombre": "Pepe Técnico",
+        "especialidad": "Industrial"
+      },
+      {
+        "id": "T02",
+        "nombre": "Juan Instalador",
+        "especialidad": "Doméstica"
+      },
+      {
+        "id": "T03",
+        "nombre": "María Instaladora Especialista",
+        "especialidad": "General"
+      }
+    ],
+    "intervenciones": [
+      {
+        "id": "P-2026-001",
+        "tecnico_ref": "T01",
+        "cliente": "Restaurante El Frío",
+        "fecha": "2026-03-10",
+        "equipo": "Split Industrial ClimAir 3000",
+        "descripcion": "Cambio de filtros y recarga de gas R32.",
+        "estado": "Pendiente"
+      },
+      {
+        "id": "P-2026-002",
+        "tecnico_ref": "T02",
+        "cliente": "Vivienda Particular - Calle Aragón 20",
+        "fecha": "2026-03-11",
+        "equipo": "ClimAir 1000 v3",
+        "descripcion": "Instalación nueva unidad exterior.",
+        "estado": "Pendiente"
+      },
+      {
+        "id": "P-2026-003",
+        "tecnico_ref": "T02",
+        "cliente": "Vivienda Particular - Calle Pau Gasol 15",
+        "fecha": "2026-03-11",
+        "equipo": "ClimAir 1000 v3",
+        "descripcion": "Instalación nueva unidad exterior.",
+        "estado": "Activo"
+      },
+      {
+        "id": "P-2026-004",
+        "tecnico_ref": "T03",
+        "cliente": "CC Islazul",
+        "fecha": "2026-03-12",
+        "equipo": "Chiller de Agua 50kW",
+        "descripcion": "Revisión del circuito de condensación.",
+        "estado": "Finalizado"
+      },
+      {
+        "id": "P-2026-005",
+        "tecnico_ref": "T01",
+        "cliente": "CC La Vaguada",
+        "fecha": "2026-03-12",
+        "equipo": "Mantenimiento",
+        "descripcion": "Revisión anual del sistema climatización.",
+        "estado": "Finalizado"
+      }
+    ]
+  }
+}
