@@ -1,37 +1,38 @@
-# ❄️ Climair S.L. - Infraestructura Digital Intermodular
+# 📊 Proyecto Intermodula 1º ASIR - Climair S.L. (Módulo: Lenguaje de Marcas)
 
-Este proyecto representa la transformación digital de **Climair S.L.**, integrando la administración de servidores Linux de alto rendimiento con la gestión avanzada de estructuras de datos. El objetivo es centralizar y optimizar los reportes de intervenciones técnicas en un entorno seguro e interoperable.
-
----
-
-## 🛡️ 1. Infraestructura de Servidor (Módulo ISO)
-Se ha desplegado un entorno de servidor robusto utilizando **Ubuntu Server 24.04 LTS**, configurado como el núcleo central de datos de la compañía.
-
-* **📦 Almacenamiento:** Implementado en la ruta crítica `/srv/climair/`. Se ha aplicado una política de permisos **POSIX** estricta (`chmod 770`) para asegurar que solo los miembros del grupo `tecnicos` y administradores puedan manipular la información.
-* **🔄 Interoperabilidad (Samba):** Configuración de un servidor de archivos **Samba** para permitir la integración transparente con clientes Windows. Esto permite a los administrativos gestionar archivos **XML** y **JSON** como si fueran unidades locales.
-* **🔒 Seguridad Perimetral:** * Control de acceso mediante usuarios de red sincronizados.
-    * Configuración del firewall **UFW** permitiendo exclusivamente tráfico SSH y Samba para minimizar la superficie de ataque.
+Este repositorio contiene la arquitectura de datos para la gestión de partes de trabajo de **Climair S.L.** El proyecto se centra en el modelado de información técnica mediante lenguajes de marcado, asegurando la integridad de los datos y su representación visual.
 
 ---
 
-## 📊 2. Gestión de Información (Módulo LMG)
-La digitalización de los partes de trabajo se ha realizado bajo estándares industriales de intercambio de información.
+## 🏗️ 1. Modelado de Datos (XML)
+La entidad principal es el **Parte de Trabajo**, estructurado en un archivo `datos.xml`. Este documento centraliza:
+* **Catálogo de Técnicos:** Registro de empleados con IDs únicos y especialidades.
+* **Registro de Intervenciones:** Detalles de clientes, equipos afectados, descripciones técnicas y estados de reparación.
 
-* **📄 Estructura XML:** El archivo `datos.xml` actúa como la "fuente de verdad", centralizando la información de los técnicos y las intervenciones.
-* **🛡️ Validación DTD:** Uso de `modelo.dtd` como contrato de calidad. Esto garantiza que cada registro cumpla con las reglas de negocio (ej. estados de intervención permitidos), asegurando la **integridad referencial** de los datos.
-* **🎨 Visualización XSLT/CSS:** Para la gerencia, se ha desarrollado un **Dashboard Futurista** con estilos *Glassmorphism* y efectos neón. La hoja de estilos `transform.xslt` convierte los datos planos en un reporte visual e interactivo.
-* **📱 Exportación JSON:** Provisión de un archivo `datos.json` optimizado para la futura integración con aplicaciones móviles y entornos NoSQL.
+## 🛡️ 2. Validación de Integridad (DTD)
+Para evitar errores en el flujo de trabajo, se ha implementado un esquema **DTD** (`modelo.dtd`) que actúa como contrato de calidad:
+* **Tipado estricto:** Los estados solo pueden ser `Pendiente`, `En_curso` o `Finalizado`.
+* **Integridad referencial:** Uso de atributos `ID` e `IDREF` para vincular cada parte de trabajo con un técnico existente, impidiendo registros huérfanos.
+
+> **Validación:** El sistema es verificado mediante el comando `xmllint --dtdvalid`, garantizando que solo los datos bien formados entren en el sistema.
+
+## 🎨 3. Transformación y UI (XSLT & CSS)
+Los datos brutos se transforman en una interfaz de monitorización profesional denominada **Terminal v2.0**:
+* **Motor XSLT:** Se utiliza **XPath** para procesar dinámicamente el XML y generar una tabla HTML estructurada.
+* **Diseño:** Uso de **CSS3** con técnicas de *Glassmorphism* (transparencias) y estética neón para resaltar la urgencia de los partes pendientes.
+* **Lógica de Colores:** Los estados cambian de color automáticamente según el valor del XML (Rojo: Pendiente, Amarillo: Activo, Verde: Finalizado).
+
+## 🔄 4. Interoperabilidad (JSON)
+Se incluye una versión en **JSON** de la estructura para asegurar la compatibilidad con aplicaciones modernas y facilitar el intercambio de datos con APIs de terceros.
 
 ---
 
-## 🔗 3. Integración de Sistemas (El "Cómo encaja")
-La arquitectura del proyecto se basa en la conexión fluida entre los diferentes módulos del ciclo formativo:
+## 🔗 5. Integración con Infraestructura (ISO)
+El proyecto de Lenguaje de Marcas se integra en el entorno de producción de **ISO (Ubuntu Server)** de la siguiente manera:
 
-| Componente | Función en Climair | Relación Intermodular |
-| :--- | :--- | :--- |
-| **Ubuntu Server** | Almacén de datos físico y seguro. | **ISO** (Sistemas Operativos) |
-| **Samba Share** | Intercambio de archivos multiplataforma. | **Redes** e Interoperabilidad |
-| **XML / JSON** | Estandarización de partes de trabajo. | **LMG** (Estructura de Datos) |
-| **XSLT / CSS** | Interfaz de monitorización y reportes. | **LMG** (Visualización) |
+* **Despliegue en Linux:** Los archivos residen en la partición gestionada por LVM en `/srv/climair/`.
+* **Servidor de Archivos:** Gracias a **Samba**, los archivos XML son editables desde estaciones de trabajo Windows, manteniendo la persistencia en el servidor Linux.
+* **Permisos de Sistema:** Se aplican máscaras de creación (`0770`) para que la integridad definida en el DTD sea respaldada por la seguridad del sistema operativo.
+* **Procesamiento de Lado del Servidor:** La generación de reportes HTML se realiza mediante `xsltproc` directamente en la terminal de Ubuntu.
 
 ---
