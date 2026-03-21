@@ -27,12 +27,11 @@ Se incluye una versión en **JSON** de la estructura para asegurar la compatibil
 
 ---
 
-## 🔗 5. Integración con Infraestructura (ISO)
+##  5. Integración con Infraestructura (ISO)
 El proyecto de Lenguaje de Marcas se integra en el entorno de producción de **ISO (Ubuntu Server)** de la siguiente manera:
 
 * **Despliegue en Linux:** Los archivos residen en la partición gestionada por LVM en `/srv/climair/`.
 * **Servidor de Archivos:** Gracias a **Samba**, los archivos XML son editables desde estaciones de trabajo Windows, manteniendo la persistencia en el servidor Linux.
-* **Permisos de Sistema:** Se aplican máscaras de creación (`0770`) para que la integridad definida en el DTD sea respaldada por la seguridad del sistema operativo.
 * **Procesamiento de Lado del Servidor:** La generación de reportes HTML se realiza mediante `xsltproc` directamente en la terminal de Ubuntu.
 
 ---
